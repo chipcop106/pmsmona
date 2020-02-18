@@ -1,0 +1,6 @@
+gulpfile.js
+package-lock.json
+package.json
+.git
+.DS_Store
+**/**/.DS_Store

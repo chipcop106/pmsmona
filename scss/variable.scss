@@ -1,0 +1,88 @@
+@charset "utf-8";
+//
+//VARIABLE :: BEGIN
+//
+$main-w: 1200;
+$sp-w: 768;
+$mb-w: 480;
+$second-color:#ef4339;
+$primary-color: #1ec8c8;
+$primary-txt-color: #001737;
+$sidenav-active-box-shadow: 3px 3px 20px 0 rgba(38, 198, 218, 0.4) !important;
+$border-color:rgba(72, 94, 144, 0.16);
+//
+//VARIABLE :: END
+//
+//
+//Bootstrap variable
+$red:#ef4339;
+$green:#0c9463;
+$yellow:#ffd369;
+//MIXIN :: BEGIN
+//
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+    box-shadow: $shadow;
+}
+
+@mixin coverbg($url) {
+    background: url($url) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+
+@mixin transition($s) {
+    -webkit-transition: all $s ease-in-out;
+    -moz-transition: all $s ease-in-out;
+    -o-transition: all $s ease-in-out;
+    -ms-transition: all $s ease-in-out;
+    transition: all $s ease-in-out;
+}
+
+@mixin media($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+
+@mixin element-invisible {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+        clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax.
+    }
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+//
+//MIXIN :: END
+//
+//media template
+// @include media(1199px){
+//    width: 970px;
+//}
+//@include media(1199px){
+//    width: 970px;
+//}
+//@include media(991px){
+//    width: 750px;
+//}
+//@include media(767px){
+//    width: 100%;
+//}
+%clear {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    &:before {
+        display: table;
+        content: " ";
+    }
+}

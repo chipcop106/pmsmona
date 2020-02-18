@@ -1,0 +1,464 @@
+@import 'variable';
+@import 'mixins';
+@import 'lib/table-filter';
+.df-logo {
+    max-width: 150px;
+    margin-top: 0;
+    img {
+        width: 100%;
+    }
+    @include media(1024px) {
+        max-width: 200px;
+    }
+    @include media(992px) {
+        max-width: 140px;
+    }
+    @include media(600px) {
+        max-width: 100px;
+    }
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.navbar-search {
+    z-index: 0;
+    &.visible {
+        z-index: 100;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-menu {
+        max-width: 960px;
+        justify-content: center;
+        margin-top: 0;
+        .nav-item .nav-link svg {
+            display: initial;
+        }
+    }
+}
+
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('../img/select.png');
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: calc(100% - 7px) center;
+    padding-right: 20px;
+    background-color: inherit;
+}
+
+#quick-chat-wrap {
+    .sidenav {
+        left: auto;
+        right: 0;
+        width: 350px;
+        transform: translate(100%, 0);
+        &.show {
+            transform: translate(0, 0);
+        }
+        @include media(480px) {
+            width: 100%;
+        }
+    }
+    .header-nav {
+        padding: 15px 10px;
+        border-bottom: 1px solid #e1e1e1;
+        .chat-action {
+            float: left;
+            margin-left: 15px;
+            svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        .title {
+            text-align: center;
+            padding-left: 35px;
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 0;
+        }
+    }
+    .list-people {
+        list-style: none;
+        padding-left: 0;
+        overflow: auto;
+        height: calc(100vh - 56px);
+        .people-item {
+            >.justify-content-end {
+                margin-right: 15px;
+            }
+            .people-link {
+                padding: 15px 20px;
+                display: block;
+                @include transition(.3s);
+                &:hover {
+                    background: #ebebeb;
+                }
+            }
+            .info-people {
+                margin-left: 10px;
+                .name {
+                    font-size: 14px;
+                    color: #000;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+                .role {
+                    font-size: 12px;
+                    color: #707070;
+                    margin-bottom: 0;
+                    font-weight: 500;
+                }
+            }
+            .user-content {
+                padding: 15px;
+                p {
+                    margin-bottom: 5px;
+                    &.time {
+                        margin-bottom: 0;
+                    }
+                }
+                hr {
+                    margin: 5px 0;
+                }
+                &.bubble {
+                    position: relative;
+                    margin-left: 15px;
+                    border-radius: .3rem;
+                    background: #eceff1;
+                    hr {
+                        border-color: #e1e1e1;
+                    }
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        left: -9px;
+                        width: 0;
+                        height: 0;
+                        margin-top: -20px;
+                        content: '';
+                        border: 10px solid transparent;
+                        border-right-color: #eceff1;
+                        border-left: 0;
+                    }
+                }
+                &.bubble-right {
+                    position: relative;
+                    margin-left: 1rem;
+                    color: #fff;
+                    border-radius: .3rem;
+                    background-color: #2196f3;
+                    hr {
+                        border-color: #fff;
+                    }
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        width: 0;
+                        height: 0;
+                        margin-top: -16px;
+                        margin-right: -8px;
+                        content: '';
+                        border: 10px solid transparent;
+                        border-right: 0;
+                        border-left-color: #2196f3;
+                    }
+                }
+            }
+            .avatar-people {
+                &.active {
+                    &:after {
+                        background: #60b767;
+                    }
+                }
+                &:after {
+                    content: '';
+                    width: 15px;
+                    height: 15px;
+                    display: inline-block;
+                    position: absolute;
+                    background: #ccc;
+                    border-radius: 50%;
+                    bottom: 0px;
+                    right: 0;
+                    border: 2px solid #fff;
+                }
+                display: inline-block;
+                position:relative;
+                img {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+#chat-content-detail {
+    .list-people {
+        height: calc(100vh - 125px);
+        .people-item {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            .people-link {
+                &:hover {
+                    background: #fff;
+                }
+            }
+        }
+    }
+    .chat-type {
+        border-top: 1px solid #e1e1e1;
+        display: flex;
+        input.form-control {
+            padding: 15px;
+            height: auto;
+            &:focus {
+                outline: 0;
+                box-shadow: none;
+            }
+        }
+        .btn-send {
+            padding: 0 15px;
+            border-left: 1px solid #e1e1e1;
+            background: #eceff1;
+            svg {
+                height: 50px;
+                width: 30px;
+            }
+        }
+    }
+}
+
+.custom-checkbox input[type="checkbox"]+span:after {
+    content: '';
+    width: 6px;
+    height: 12px;
+    left: 7px;
+    top: 2px;
+}
+
+.df-logo {
+    color: $primary-color;
+    font-weight: 900;
+    span {
+        padding-left: 10px;
+        font-weight: 900;
+    }
+}
+
+.content-fixed {
+    min-height: calc(100vh - 110px);
+}
+
+.table__filter__wrap {
+    .table tr td {
+        color: #02342b;
+    }
+    .checkbox-col .toggle-collapse {
+        color: #02342b;
+    }
+    th.sort-label {
+        white-space: nowrap;
+    }
+}
+
+#scroll-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 55px;
+    width: 40px;
+    height: 40px;
+    background: #1ec8c8;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    z-index: 99;
+    border-radius: 3px;
+    i {
+        line-height: inherit;
+    }
+}
+
+@include media(768px) {
+    .chart__wrap {
+        .card {
+            padding: 0;
+            border: 0;
+        }
+    }
+}
+
+.dark,
+.dark * {
+    background-color: #222;
+    color: #e6e6e6;
+    border-color: #e6e6e6;
+}
+
+input.form-control.number-val {
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-align-last: center;
+    text-align: center;
+    &::placeholder {
+        font-weight: normal;
+        letter-spacing: initial;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.preview-image {
+    display: flex;
+    overflow: auto;
+    .image-wrap {
+        margin-top: 15px;
+        padding: 10px 5px;
+        flex: 0 0 100px;
+        position: relative;
+        .delete-image {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #ec0000;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+        }
+    }
+    .image-box {
+        border-radius: 4px;
+        overflow: hidden;
+        >a {
+            display: inline-block;
+        }
+        img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+        }
+    }
+}
+
+.input-icon {
+    position: relative;
+    .icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+}
+
+.result-goout {
+    .tx-row {
+        display: flex;
+        justify-content: space-between;
+        .lb {
+            flex: 0 0 200px;
+        }
+    }
+}
+
+* {
+    outline: 0;
+}
+
+.table__filter__wrap .table-centered {
+    select.form-control {
+        padding-right: 20px;
+    }
+    .compare {
+        select.form-control {
+            padding-right: 0.9375rem;
+            background-image: none;
+        }
+    }
+}
+
+.wd-125 {
+    width: 125px;
+}
+
+.room-info {
+    .wd-120 {
+        flex: 0 0 120px;
+    }
+    .row.form-group {
+        flex-wrap: wrap;
+        .wd-120 {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+.lg-toolbar {
+    .upload-image {
+        height: 47px;
+        line-height: 27px;
+        padding: 10px;
+        float: right;
+    }
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+    border-color: $primary-color;
+    border-width: 3px;
+}
+
+.lg-backdrop {
+    z-index: 1050;
+}
+
+.lg-outer {
+    z-index: 1051;
+}
+
+.lg-backdrop.in {
+    opacity: 0.85;
+}
+
+.update-image-box {
+    .preview-image {
+        .image-wrap {
+            flex: 1 1 100%;
+            img {
+                height: auto;
+            }
+        }
+    }
+}
+
+.col-form-label {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+.datetimepicker+.datepicker-trigger {
+    cursor: normal;
+    pointer-events: none;
+}
+
+.datetimepicker:read-only {
+    background: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-text-fill-color: rgba(0, 0, 0, 1);
+    -webkit-opacity: 1;
+}
